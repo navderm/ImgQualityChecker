@@ -7,9 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#ifdef __cplusplus
+#include <opencv2/highgui/ios.h>
+#include <opencv2/opencv.hpp>
+#include <opencv2/opencv_modules.hpp>
 
-@interface ViewController : UIViewController
+#include "Ma_in.h"
+#include <iostream>
+// using namespace cv;
+#endif
+#import <Foundation/Foundation.h>
 
+@interface ViewController : UIViewController {
+
+    UIImage* image;
+    cv::Mat cvImage;
+    
+}
+
+@property (nonatomic, weak) IBOutlet UIImageView* imageView;
 
 @end
 
