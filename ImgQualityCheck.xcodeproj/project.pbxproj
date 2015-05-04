@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04C113541AF834CE00BEE4D1 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C113531AF834CE00BEE4D1 /* opencv2.framework */; };
 		373301821AF82B0300409512 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 373301811AF82B0300409512 /* main.m */; };
 		373301851AF82B0300409512 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 373301841AF82B0300409512 /* AppDelegate.m */; };
 		373301881AF82B0300409512 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 373301871AF82B0300409512 /* ViewController.mm */; };
@@ -14,7 +15,6 @@
 		3733018D1AF82B0300409512 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3733018C1AF82B0300409512 /* Images.xcassets */; };
 		373301901AF82B0300409512 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3733018E1AF82B0300409512 /* LaunchScreen.xib */; };
 		3733019C1AF82B0300409512 /* ImgQualityCheckTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3733019B1AF82B0300409512 /* ImgQualityCheckTests.m */; };
-		373301A61AF82B2400409512 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 373301A51AF82B2400409512 /* opencv2.framework */; };
 		373301AE1AF82BBA00409512 /* features.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373301A81AF82BBA00409512 /* features.cpp */; };
 		373301AF1AF82BBA00409512 /* logisticRegression.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373301AA1AF82BBA00409512 /* logisticRegression.cpp */; };
 		373301B01AF82BBA00409512 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 373301AC1AF82BBA00409512 /* utils.cpp */; };
@@ -136,6 +136,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04C113531AF834CE00BEE4D1 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../Downloads/opencv2.framework; sourceTree = "<group>"; };
 		3733017C1AF82B0300409512 /* ImgQualityCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImgQualityCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		373301801AF82B0300409512 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		373301811AF82B0300409512 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -149,7 +150,6 @@
 		373301951AF82B0300409512 /* ImgQualityCheckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImgQualityCheckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3733019A1AF82B0300409512 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3733019B1AF82B0300409512 /* ImgQualityCheckTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImgQualityCheckTests.m; sourceTree = "<group>"; };
-		373301A51AF82B2400409512 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		373301A81AF82BBA00409512 /* features.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = features.cpp; sourceTree = "<group>"; };
 		373301A91AF82BBA00409512 /* features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = features.h; sourceTree = "<group>"; };
 		373301AA1AF82BBA00409512 /* logisticRegression.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = logisticRegression.cpp; sourceTree = "<group>"; };
@@ -269,7 +269,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				373301A61AF82B2400409512 /* opencv2.framework in Frameworks */,
+				04C113541AF834CE00BEE4D1 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,8 +286,8 @@
 		373301731AF82B0300409512 = {
 			isa = PBXGroup;
 			children = (
+				04C113531AF834CE00BEE4D1 /* opencv2.framework */,
 				373301A71AF82B6600409512 /* CPPFiles */,
-				373301A51AF82B2400409512 /* opencv2.framework */,
 				3733017E1AF82B0300409512 /* ImgQualityCheck */,
 				373301981AF82B0300409512 /* ImgQualityCheckTests */,
 				3733017D1AF82B0300409512 /* Products */,
@@ -868,6 +868,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"/Users/cheng-lunli/Downloads",
 				);
 				INFOPLIST_FILE = ImgQualityCheck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -882,6 +883,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"/Users/cheng-lunli/Downloads",
 				);
 				INFOPLIST_FILE = ImgQualityCheck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -942,6 +944,7 @@
 				373301A11AF82B0300409512 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		373301A21AF82B0300409512 /* Build configuration list for PBXNativeTarget "ImgQualityCheckTests" */ = {
 			isa = XCConfigurationList;
@@ -950,6 +953,7 @@
 				373301A41AF82B0300409512 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
