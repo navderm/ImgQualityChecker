@@ -25,14 +25,24 @@
         UIImageToMat(image, cvImage);
         // _imageView.image = image;
         double val = showImage(cvImage);
+        NSString *goodImg = @"Good Image";
+        NSString *badImg = @"Bad Image";
+        NSString *yourString = [NSString stringWithFormat:@"%.10f", val];
+        NSString* msgStr;
+        if (val > 0.5) {
+         msgStr = [NSString stringWithFormat:@"%@ : %@", goodImg, yourString];
+        }
+        else {
+            msgStr = [NSString stringWithFormat:@"%@ : %@", badImg, yourString];
+        }
         if (val > 0.5) {
             // Do any additional setup after loading the view, typically from a nib.
-            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"RESULT!" message:@"Good Image" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"RESULT!" message:msgStr delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
             [alert show];
         }
         else {
             // Do any additional setup after loading the view, typically from a nib.
-            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"RESULT!" message:@"Bad Image" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"RESULT!" message:msgStr delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
             [alert show];
         }
     }
