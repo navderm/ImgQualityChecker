@@ -35,12 +35,6 @@
             UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"RESULT!" message:@"Bad Image" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
             [alert show];
         }
-            
-//
-//        cv::Mat blurredImg;
-//        cv::blur (cvImage, blurredImg, cv::Size(5,5));
-//        image = MatToUIImage(blurredImg);
-
     }
 
 }

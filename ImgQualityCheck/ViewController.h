@@ -5,7 +5,6 @@
 //  Created by Neeraj Jhawar on 5/4/15.
 //  Copyright (c) 2015 SolsSystems. All rights reserved.
 //
-
 #import <UIKit/UIKit.h>
 #ifdef __cplusplus
 #include <opencv2/highgui/ios.h>
@@ -19,13 +18,9 @@
 #import <Foundation/Foundation.h>
 
 @interface ViewController : UIViewController {
-
     UIImage* image;
     cv::Mat cvImage;
-    
 }
 
 @property (nonatomic, weak) IBOutlet UIImageView* imageView;
-
 @end
-
