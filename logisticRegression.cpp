@@ -1,9 +1,9 @@
 //
 //  logisticRegression.cpp
-//  realtime_CVProj
+//  ImgQualityCheck
 //
-//  Created by abhishek on 1/29/15.
-//  Copyright (c) 2015 SOLS. All rights reserved.
+//  Created by Neeraj Jhawar on 5/4/15.
+//  Copyright (c) 2015 SolsSystems. All rights reserved.
 //
 
 #include "logisticRegression.h"
