@@ -17,7 +17,8 @@
 #endif
 #import <Foundation/Foundation.h>
 
-@interface ViewController : UIViewController {
+@interface ViewController : UIViewController
+{
     UIImage* image;
     cv::Mat cvImage;
 }
