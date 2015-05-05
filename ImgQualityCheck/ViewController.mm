@@ -20,7 +20,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     // Read the image
-    
 
 //    image = [UIImage imageNamed:@"1479_r2.png"];
 //    if (image != nil) {
@@ -61,16 +60,40 @@
 - (void) imagePickerController: (UIImagePickerController *) picker
  didFinishPickingMediaWithInfo: (NSDictionary *) info
 {
-    NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
-    UIImage *originalImage, *editedImage, *imageToSave;
-    
-    originalImage = (UIImage *) [info objectForKey:
+    // get image data
+    UIImage *originalImage = (UIImage *) [info objectForKey:
                                  UIImagePickerControllerOriginalImage];
-    
     UIImage *resizedImage = [self imageWithImage:originalImage scaledToSize:CGSizeMake(1280, 720)];
     
-    
-    
+    // process image
+    if (resizedImage != nil) {
+        _imageView.image = image;
+        // Convert UIImage* to cv::Mat
+        UIImageToMat(resizedImage, cvImage);
+        // _imageView.image = image;
+        double val = showImage(cvImage);
+        NSString *goodImg = @"Good Image";
+        NSString *badImg = @"Bad Image";
+        NSString *yourString = [NSString stringWithFormat:@"%.10f", val];
+        NSString* msgStr;
+        if (val > 0.5) {
+            msgStr = [NSString stringWithFormat:@"%@ : %@", goodImg, yourString];
+        }
+        else {
+            msgStr = [NSString stringWithFormat:@"%@ : %@", badImg, yourString];
+        }
+        if (val > 0.5) {
+            // Do any additional setup after loading the view, typically from a nib.
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"RESULT!" message:msgStr delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+            [alert show];
+        }
+        else {
+            // Do any additional setup after loading the view, typically from a nib.
+            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"RESULT!" message:msgStr delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+            [alert show];
+        }
+    }
+
     
 //    [self dismissViewControllerAnimated:YES completion:nil];
 
