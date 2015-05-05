@@ -20,33 +20,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     // Read the image
-
-//    image = [UIImage imageNamed:@"1479_r2.png"];
-//    if (image != nil) {
-//        _imageView.image = image;
-//        // Convert UIImage* to cv::Mat
-//        UIImageToMat(image, cvImage);
-//        // _imageView.image = image;
-//        double val = showImage(cvImage);
-//        if (val > 0.5) {
-//            // Do any additional setup after loading the view, typically from a nib.
-//            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"RESULT!" message:@"Good Image" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-//            [alert show];
-//        }
-//        else {
-//            // Do any additional setup after loading the view, typically from a nib.
-//            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"RESULT!" message:@"Bad Image" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-//            [alert show];
-//        }
-//    }
-
 }
+
 - (IBAction)startImageCapture:(id)sender
 {
     self.imagePicker = [[UIImagePickerController alloc] init];
     self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    self.imagePicker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:
-                                   UIImagePickerControllerSourceTypeCamera];
     self.imagePicker.delegate = self;
     [self presentViewController:self.imagePicker animated:YES completion:nil];
 }
@@ -70,8 +49,9 @@
         _imageView.image = image;
         // Convert UIImage* to cv::Mat
         UIImageToMat(resizedImage, cvImage);
-        // _imageView.image = image;
         double val = showImage(cvImage);
+        cvImage.release();
+        
         NSString *goodImg = @"Good Image";
         NSString *badImg = @"Bad Image";
         NSString *yourString = [NSString stringWithFormat:@"%.10f", val];
@@ -83,24 +63,28 @@
             msgStr = [NSString stringWithFormat:@"%@ : %@", badImg, yourString];
         }
         if (val > 0.5) {
-            // Do any additional setup after loading the view, typically from a nib.
-            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"RESULT!" message:msgStr delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-            [alert show];
+            UIAlertController *errorCancelOrder = [UIAlertController alertControllerWithTitle:@"RESULT!"
+                                                                                      message:msgStr
+                                                                               preferredStyle:UIAlertControllerStyleAlert];
+            [errorCancelOrder addAction:[UIAlertAction actionWithTitle:@"CONTINUE" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action)
+            {
+                [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
+            }]];
+            [self.imagePicker presentViewController:errorCancelOrder animated:YES completion:nil];
         }
         else {
             // Do any additional setup after loading the view, typically from a nib.
-            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"RESULT!" message:msgStr delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-            [alert show];
+            UIAlertController *errorCancelOrder = [UIAlertController alertControllerWithTitle:@"RESULT!"
+                                                                                      message:msgStr
+                                                                               preferredStyle:UIAlertControllerStyleAlert];
+            [errorCancelOrder addAction:[UIAlertAction actionWithTitle:@"CONTINUE" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action)
+            {
+                [self.imagePicker dismissViewControllerAnimated:YES completion:nil];
+            }]];
+            [self.imagePicker presentViewController:errorCancelOrder animated:YES completion:nil];
         }
     }
-
-    
-//    [self dismissViewControllerAnimated:YES completion:nil];
-
-    
 }
-
-
 
 - (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize
 {
